@@ -6,9 +6,8 @@
       <class name="regression.Runner">
         <methods>
           <include name="verifyUnsuccessfulLogin"/>
-          <include name="initialization"/>
-          <include name="teardown"/>
-          <include name="captureScreenshot"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
         </methods>
       </class> <!-- regression.Runner -->
     </classes>

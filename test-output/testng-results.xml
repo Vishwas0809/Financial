@@ -2,35 +2,35 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-04-01T19:02:20 IST" name="Default suite" finished-at="2024-04-01T19:02:50 IST" duration-ms="30365">
+  <suite started-at="2024-04-02T10:39:33 IST" name="Default suite" finished-at="2024-04-02T10:40:05 IST" duration-ms="31985">
     <groups>
     </groups>
-    <test started-at="2024-04-01T19:02:20 IST" name="Default test" finished-at="2024-04-01T19:02:50 IST" duration-ms="30365">
+    <test started-at="2024-04-02T10:39:33 IST" name="Default test" finished-at="2024-04-02T10:40:05 IST" duration-ms="31985">
       <class name="regression.Runner">
-        <test-method is-config="true" signature="initialization()[pri:0, instance:regression.Runner@212b5695]" started-at="2024-04-01T19:02:20 IST" name="initialization" finished-at="2024-04-01T19:02:24 IST" duration-ms="4253" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:regression.Runner@212b5695]" started-at="2024-04-02T10:39:33 IST" name="setUp" finished-at="2024-04-02T10:39:39 IST" duration-ms="5780" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- initialization -->
-        <test-method signature="verifySuccessfulLogin()[pri:0, instance:regression.Runner@212b5695]" started-at="2024-04-01T19:02:24 IST" name="verifySuccessfulLogin" finished-at="2024-04-01T19:02:35 IST" duration-ms="10517" status="PASS">
+        </test-method> <!-- setUp -->
+        <test-method signature="verifySuccessfulLogin()[pri:0, instance:regression.Runner@212b5695]" started-at="2024-04-02T10:39:39 IST" name="verifySuccessfulLogin" finished-at="2024-04-02T10:39:50 IST" duration-ms="10888" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifySuccessfulLogin -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:regression.Runner@212b5695]" started-at="2024-04-01T19:02:35 IST" name="teardown" finished-at="2024-04-01T19:02:36 IST" duration-ms="784" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:regression.Runner@212b5695]" started-at="2024-04-02T10:39:50 IST" name="tearDown" finished-at="2024-04-02T10:39:50 IST" duration-ms="297" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- teardown -->
-        <test-method is-config="true" signature="initialization()[pri:0, instance:regression.Runner@212b5695]" started-at="2024-04-01T19:02:36 IST" name="initialization" finished-at="2024-04-01T19:02:39 IST" duration-ms="3740" status="PASS">
+        </test-method> <!-- tearDown -->
+        <test-method is-config="true" signature="setUp()[pri:0, instance:regression.Runner@212b5695]" started-at="2024-04-02T10:39:50 IST" name="setUp" finished-at="2024-04-02T10:39:54 IST" duration-ms="3772" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- initialization -->
-        <test-method signature="verifyUnsuccessfulLogin()[pri:0, instance:regression.Runner@212b5695]" started-at="2024-04-01T19:02:39 IST" name="verifyUnsuccessfulLogin" finished-at="2024-04-01T19:02:50 IST" duration-ms="11014" status="PASS">
+        </test-method> <!-- setUp -->
+        <test-method signature="verifyUnsuccessfulLogin()[pri:0, instance:regression.Runner@212b5695]" started-at="2024-04-02T10:39:54 IST" name="verifyUnsuccessfulLogin" finished-at="2024-04-02T10:40:05 IST" duration-ms="11173" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifyUnsuccessfulLogin -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:regression.Runner@212b5695]" started-at="2024-04-01T19:02:50 IST" name="teardown" finished-at="2024-04-01T19:02:50 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:regression.Runner@212b5695]" started-at="2024-04-02T10:40:05 IST" name="tearDown" finished-at="2024-04-02T10:40:05 IST" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- teardown -->
+        </test-method> <!-- tearDown -->
       </class> <!-- regression.Runner -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->

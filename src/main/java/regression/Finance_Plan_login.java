@@ -33,14 +33,13 @@ public class Finance_Plan_login {
     WebElement error;
     WebDriverWait wait;
     
-  
-public Finance_Plan_login(WebDriver driver) {
+protected Finance_Plan_login(WebDriver driver) {
 	this.driver=driver;
 	PageFactory.initElements(driver,this);
 	wait=new WebDriverWait(driver,Duration.ofSeconds(10));
 }
 
-public void page_validation() throws IOException  {
+protected void page_validation() throws IOException  {
 	 sassert=new SoftAssert();
 	 String title = driver.getTitle();
      try{
@@ -53,12 +52,12 @@ public void page_validation() throws IOException  {
      }
 }
 
-public void credentials(String args1,String args2 ) {
+protected void credentials(String args1,String args2 ) {
 	username.sendKeys(args1);
 	password.sendKeys(args2);
 }
 
-public void login_button() throws IOException {
+protected void login_button() throws IOException {
     login_button.click();
     
     try {
@@ -89,7 +88,7 @@ private void verifyUnsuccessfulLogin() throws IOException {
    }
 
 
-public void captureScreenshot(String filename) throws IOException {
+private void captureScreenshot(String filename) throws IOException {
 	try {
 		TakesScreenshot sc=(TakesScreenshot)driver;
 		File screenshot = sc.getScreenshotAs(OutputType.FILE);
