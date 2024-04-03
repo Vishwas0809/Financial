@@ -17,89 +17,91 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
 
-public class Finance_Plan_login {
+public class Finance_Plan_login extends TestBase  {
 	WebDriver driver;
 	SoftAssert sassert;
-	String url="https://uat-workpoint.fincart.com/login";
     @FindBy(xpath="//input[@type=\"text\"][@placeholder=\"Enter username...\"]")
-    WebElement username;
+    private static WebElement usernameField;
     @FindBy(xpath="//input[@placeholder=\"Enter password...\"]")
-    WebElement password;
+    private static WebElement passwordField;
     @FindBy(xpath="//button[@class=\"btn btn-fincart\"]")
-    WebElement login_button;
+    private static WebElement login_button;
     @FindBy(xpath="//p[.='testentry']")
-    WebElement Profile_name;
+    private static WebElement Profile_name;
     @FindBy(xpath="//div[.='Error: Username or password is incorrect']")
-    WebElement error;
-    WebDriverWait wait;
-    
-protected Finance_Plan_login(WebDriver driver) {
+    private static WebElement error;
+    private static WebDriverWait wait;
+
+    //WebDriver initialisation
+public Finance_Plan_login(WebDriver driver) {
 	this.driver=driver;
 	PageFactory.initElements(driver,this);
 	wait=new WebDriverWait(driver,Duration.ofSeconds(10));
 }
-
-protected void page_validation() throws IOException  {
+    //login page validation
+private void page_validation() throws IOException  {
 	 sassert=new SoftAssert();
 	 String title = driver.getTitle();
      try{
+    	 System.out.println("reached workpoint login page");
     	 sassert.assertEquals(title, "Workpoint | Fincart","page verification failed");
     	 sassert.assertAll();
      }
      catch(AssertionError e) {
+    	 System.out.println("page validation failed");
     	 captureScreenshot("title_verification_failed");
-    	 throw e;
-     }
-}
-
-protected void credentials(String args1,String args2 ) {
-	username.sendKeys(args1);
-	password.sendKeys(args2);
-}
-
-protected void login_button() throws IOException {
-    login_button.click();
-    
-    try {
-        wait.until(ExpectedConditions.visibilityOf(Profile_name));
-        verifySuccessfulLogin();
-    } catch (TimeoutException e) {
-        verifyUnsuccessfulLogin();
+    	 driver.quit();
     }
 }
-
-private void verifySuccessfulLogin() throws IOException {
-    String profileName = Profile_name.getText();
-    sassert.assertEquals(profileName, "Testentry", "Successful login verification failed");
-    sassert.assertAll();
-    System.out.println("Successful Login pass");
+ 
+private void setUsername(String username) {
+	usernameField.sendKeys(username);
+}
+private void setPassword(String password) {
+	passwordField.sendKeys(password);
 }
 
-private void verifyUnsuccessfulLogin() throws IOException {
-   try {
-	String errorMessage = error.getText();
-    System.out.println("Unsuccessful login pass");
-    System.out.println(errorMessage);
-    sassert.assertEquals(errorMessage, "Error: Username or password is incorrect", "Unsuccessful login verification failed");
-}
-   catch(NoSuchElementException e) {
-	    captureScreenshot("unsuccessful_login");
-   }
-   }
-
-
-private void captureScreenshot(String filename) throws IOException {
-	try {
-		TakesScreenshot sc=(TakesScreenshot)driver;
-		File screenshot = sc.getScreenshotAs(OutputType.FILE);
-		File des=new File("screenshot/"+filename+".png");
-		FileUtils.copyFile(screenshot, des);
-		}
-	finally{
-		System.out.println("screeshot saved");
-	}
-}
+private void login_button() throws IOException {
+    login_button.click();
 }
 
-	
+   //To verify if user reached homepage
+private void verifyLogin() throws IOException {
+	try{
+		wait.until(ExpectedConditions.visibilityOfAllElements(Profile_name));
+    	String profileName = Profile_name.getText();
+        sassert.assertEquals(profileName, "Testentry", "Successful login verification failed");
+        sassert.assertAll();
+        System.out.println("Successful Login pass");
+ }   
+    catch (NoSuchElementException|TimeoutException e) {
+    	String errorMessage = error.getText();
+        sassert.assertEquals(errorMessage, "Error: Username or password is incorrect", "Unsuccessful login verification failed");
+        captureScreenshot("error");
+         }
+    	
+    }
+
+
+  // Wrapper class
+public void applicationLogin(String username,String password,String filename) throws IOException {
+    	page_validation();
+	    setUsername(username);
+     	setPassword(password);
+    	login_button();
+    	verifyLogin();
+ }
+//public void captureScreenshot(String filename) throws IOException {
+//	try {
+//		TakesScreenshot sc=(TakesScreenshot)driver;
+//		File screenshot = sc.getScreenshotAs(OutputType.FILE);
+//		File des=new File("screenshot/"+filename+".png");
+//		FileUtils.copyFile(screenshot, des);
+//		}
+//	finally{
+//		System.out.println("screeshot saved");
+//	}
+//}
+
+}
 

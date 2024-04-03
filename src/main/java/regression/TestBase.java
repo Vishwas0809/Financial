@@ -24,8 +24,8 @@ public class TestBase {
         driver.get("https://uat-workpoint.fincart.com/login");
 
         Fp = new Finance_Plan_login(driver);
-        Lc = new Lead_Creation(driver);
-        details = new NewLeadCreation(driver);
+//        Lc = new Lead_Creation(driver);
+//        details = new NewLeadCreation(driver);
     }
 
     @AfterMethod
@@ -34,17 +34,8 @@ public class TestBase {
             driver.quit();
         }
     }
-
     protected void captureScreenshot(String filename) {
-        try {
-            TakesScreenshot sc = (TakesScreenshot) driver;
-            File screenshot = sc.getScreenshotAs(OutputType.FILE);
-            File dest = new File("screenshots/" + filename + ".png");
-            FileUtils.copyFile(screenshot, dest);
-            System.out.println("Screenshot saved: " + dest.getAbsolutePath());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    ScreenshotCaptureHandling.captureScreenshot(driver, filename);
     }
 }
 

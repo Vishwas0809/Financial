@@ -1,33 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="1" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-04-02T10:39:33 IST" name="Default suite" finished-at="2024-04-02T10:40:05 IST" duration-ms="31985">
+  <suite started-at="2024-04-03T16:47:43 IST" name="Default suite" finished-at="2024-04-03T16:48:05 IST" duration-ms="22022">
     <groups>
     </groups>
-    <test started-at="2024-04-02T10:39:33 IST" name="Default test" finished-at="2024-04-02T10:40:05 IST" duration-ms="31985">
+    <test started-at="2024-04-03T16:47:43 IST" name="Default test" finished-at="2024-04-03T16:48:05 IST" duration-ms="22022">
       <class name="regression.Runner">
-        <test-method is-config="true" signature="setUp()[pri:0, instance:regression.Runner@212b5695]" started-at="2024-04-02T10:39:33 IST" name="setUp" finished-at="2024-04-02T10:39:39 IST" duration-ms="5780" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:regression.Runner@3fb1549b]" started-at="2024-04-03T16:47:43 IST" name="setUp" finished-at="2024-04-03T16:47:48 IST" duration-ms="5104" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifySuccessfulLogin()[pri:0, instance:regression.Runner@212b5695]" started-at="2024-04-02T10:39:39 IST" name="verifySuccessfulLogin" finished-at="2024-04-02T10:39:50 IST" duration-ms="10888" status="PASS">
+        <test-method signature="verifySuccessfulLogin(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:regression.Runner@3fb1549b]" started-at="2024-04-03T16:47:48 IST" name="verifySuccessfulLogin" data-provider="getdata" finished-at="2024-04-03T16:47:50 IST" duration-ms="1823" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[testentry@fincart.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[fincart@123]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[login]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- verifySuccessfulLogin -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:regression.Runner@212b5695]" started-at="2024-04-02T10:39:50 IST" name="tearDown" finished-at="2024-04-02T10:39:50 IST" duration-ms="297" status="PASS">
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:regression.Runner@3fb1549b]" started-at="2024-04-03T16:47:50 IST" name="tearDown" finished-at="2024-04-03T16:47:50 IST" duration-ms="335" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-        <test-method is-config="true" signature="setUp()[pri:0, instance:regression.Runner@212b5695]" started-at="2024-04-02T10:39:50 IST" name="setUp" finished-at="2024-04-02T10:39:54 IST" duration-ms="3772" status="PASS">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:regression.Runner@3fb1549b]" started-at="2024-04-03T16:47:50 IST" name="setUp" finished-at="2024-04-03T16:47:54 IST" duration-ms="3410" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method signature="verifyUnsuccessfulLogin()[pri:0, instance:regression.Runner@212b5695]" started-at="2024-04-02T10:39:54 IST" name="verifyUnsuccessfulLogin" finished-at="2024-04-02T10:40:05 IST" duration-ms="11173" status="PASS">
+        <test-method signature="verifySuccessfulLogin(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:regression.Runner@3fb1549b]" started-at="2024-04-03T16:47:54 IST" name="verifySuccessfulLogin" data-provider="getdata" finished-at="2024-04-03T16:48:05 IST" duration-ms="10907" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[xyz]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[abc]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[login]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.Error">
+            <message>
+              <![CDATA[Unresolved compilation problem: 
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Error: Unresolved compilation problem: 
+
+at regression.ScreenshotCaptureHandling.captureScreenshot(ScreenshotCaptureHandling.java:16)
+at regression.TestBase.captureScreenshot(TestBase.java:38)
+at regression.Finance_Plan_login.verifyLogin(Finance_Plan_login.java:80)
+at regression.Finance_Plan_login.applicationLogin(Finance_Plan_login.java:92)
+at regression.Runner.verifySuccessfulLogin(Runner.java:24)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:598)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:173)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:824)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:146)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:794)
+at org.testng.TestRunner.run(TestRunner.java:596)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:377)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:371)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:332)
+at org.testng.SuiteRunner.run(SuiteRunner.java:276)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1212)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1134)
+at org.testng.TestNG.runSuites(TestNG.java:1063)
+at org.testng.TestNG.run(TestNG.java:1031)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Error -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyUnsuccessfulLogin -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:regression.Runner@212b5695]" started-at="2024-04-02T10:40:05 IST" name="tearDown" finished-at="2024-04-02T10:40:05 IST" duration-ms="1" status="PASS">
+        </test-method> <!-- verifySuccessfulLogin -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:regression.Runner@3fb1549b]" started-at="2024-04-03T16:48:05 IST" name="tearDown" finished-at="2024-04-03T16:48:05 IST" duration-ms="363" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
