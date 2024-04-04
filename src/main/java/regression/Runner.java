@@ -1,41 +1,32 @@
+
 package regression;
 
 import java.io.IOException;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.ElementNotInteractableException;
-import org.testng.annotations.DataProvider;
+import org.openqa.selenium.NoSuchElementException;
 import org.testng.annotations.Test;
 
 public class Runner extends TestBase {
+	By close=By.xpath("(//a[@class=\"closebtn\"])[2]");
 
-    
-    @DataProvider(name="getdata")
-    public static Object[][] getdata() {
-    	return new Object[][] {
-    		{"testentry@fincart.com","fincart@123","login"},
-    		{"xyz","abc","login"}
-    	};
-    }
-    
-    
-    @Test
-    (dataProvider="getdata")
-    public void verifySuccessfulLogin(String username,String password,String filename) throws IOException, InterruptedException {
-        Fp.applicationLogin(username, password, filename);
+    @Test(priority=1, dataProvider="Valid_details", dataProviderClass = DataProviders.class)
+    public void verifyValidDetails(String username,String password,String Name, String ccode,String num,String emailid, int index, String fPlanName) throws IOException, InterruptedException {
+        Fplogin.applicationLogin(username, password);
+        try{
+        	details.newLead(Name, ccode, num, emailid, index);
+        }
+        catch(ElementNotInteractableException |NoSuchElementException e) {
+        	driver.findElement(close).click();
+        	Fplan.newFinPlan(fPlanName);
+        }
         
     }
+
+    @Test(priority=2, dataProvider="Invalid_details", dataProviderClass = DataProviders.class)
+    public void verifyInValidDetails(String username,String password,String Name, String ccode,String num,String emailid, int index, String fPlanName) throws IOException, InterruptedException {
+    	Fplogin.applicationLogin(username, password);
     
-//    public void leadCreation() {
-//        Lc.lead_creation();
-//        try {
-//            details.addNewLead();
-//            details.newLeadDeatails("xyz","India","9898787899","xz@yopmail.com", 1);
-//        } catch (ElementNotInteractableException e) {
-//            System.out.println("detail already exist");
-//            captureScreenshot("details_Exist");
-//        }
-//        driver.quit();
-//    }
-
-
-}
+        }
+    }

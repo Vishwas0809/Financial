@@ -5,9 +5,9 @@
     <classes>
       <class name="regression.Runner">
         <methods>
-          <include name="tearDown"/>
+          <include name="verifyInValidDetails" invocation-numbers="0"/>
+          <include name="verifyValidDetails" invocation-numbers="0"/>
           <include name="setUp"/>
-          <include name="verifySuccessfulLogin" invocation-numbers="1"/>
         </methods>
       </class> <!-- regression.Runner -->
     </classes>

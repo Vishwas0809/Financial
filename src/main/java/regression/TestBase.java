@@ -1,41 +1,35 @@
 package regression;
 
-import java.io.File;
-import java.io.IOException;
-
-import org.apache.commons.io.FileUtils;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+
 public class TestBase {
-     WebDriver driver;
-     Finance_Plan_login Fp;
-     Lead_Creation Lc;
-     NewLeadCreation details;
+     protected WebDriver driver;
+     protected Finance_Plan_login Fplogin;
+     protected NewLeadCreation details;
+     protected NavigationToFinancialPlan Fplan ;
 
     @BeforeMethod
     public void setUp() {
     	driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get("https://uat-workpoint.fincart.com/login");
-
-        Fp = new Finance_Plan_login(driver);
-//        Lc = new Lead_Creation(driver);
-//        details = new NewLeadCreation(driver);
+        Fplogin = new Finance_Plan_login(driver);
+        details = new NewLeadCreation(driver);
+        Fplan = new NavigationToFinancialPlan(driver);
+        
     }
 
-    @AfterMethod
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
-    protected void captureScreenshot(String filename) {
-    ScreenshotCaptureHandling.captureScreenshot(driver, filename);
-    }
+//    @AfterMethod
+//    public void tearDown() {
+//        if (driver != null) {
+//            driver.quit();
+//        }
+//    }
+    
 }
+
 
