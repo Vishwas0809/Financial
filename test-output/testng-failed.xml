@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="regression.Runner">
+      <class name="runner.Runner">
         <methods>
-          <include name="verifyInValidDetails" invocation-numbers="0"/>
-          <include name="verifyValidDetails" invocation-numbers="0"/>
+          <include name="tearDown"/>
           <include name="setUp"/>
+          <include name="verifyValidDetails" invocation-numbers="0"/>
         </methods>
-      </class> <!-- regression.Runner -->
+      </class> <!-- runner.Runner -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
